@@ -1,13 +1,30 @@
 ---
-title: Strona główna
+title: Infoteka
 layout: default
 ---
 
-# NFTK – Nowoczesna Faktoteka
+# Infoteka
 
-Witaj w otwartej bazie wiedzy o ludziach i wydarzeniach współczesnej Polski. Treści generowane i weryfikowane przy użyciu sztucznej inteligencji.
+Baza wiedzy o ludziach i wydarzeniach  
 
-## Kategorie
+---
 
-- [Osoby](./osoby/)
-- [Wydarzenia](./wydarzenia/)
+## Osoby
+
+<ul>
+  {% assign osoby = site.pages | where: "category", "osoby" | sort: "title" %}
+  {% for strona in osoby %}
+    <li><a href="{{ strona.url }}">{{ strona.title }}</a></li>
+  {% endfor %}
+</ul>
+
+---
+
+## Wydarzenia
+
+<ul>
+  {% assign wydarzenia = site.pages | where: "category", "wydarzenia" | sort: "title" %}
+  {% for strona in wydarzenia %}
+    <li><a href="{{ strona.url }}">{{ strona.title }}</a></li>
+  {% endfor %}
+</ul>

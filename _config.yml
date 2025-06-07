@@ -1,0 +1,8 @@
+title: NFTK
+description: Nowoczesna Faktoteka – AI-wiki o Polsce
+baseurl: ""
+url: "https://nftk.pl"  # lub tymczasowo: https://twojlogin.github.io/site
+markdown: kramdown
+theme: minima
+permalink: pretty
+collections: []

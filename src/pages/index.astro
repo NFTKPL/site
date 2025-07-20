@@ -9,6 +9,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </ul>
 
   <script type="module">
+    const TYPE_LABELS = {
+      person: 'Osoba',
+      organization: 'Organizacja',
+      event: 'Wydarzenie',
+      // dodaj inne typy jeśli potrzeba
+    };
+
     fetch('/index.json')
       .then(res => res.json())
       .then(data => {
@@ -18,7 +25,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           const li = document.createElement('li');
           const a = document.createElement('a');
           a.href = `/${entity.slug}`;
-          a.textContent = `${entity.name} (${entity.type})`;
+          const label = TYPE_LABELS[entity.type] || entity.type;
+          a.textContent = `${entity.name} – ${label}`;
           li.appendChild(a);
           list.appendChild(li);
         });

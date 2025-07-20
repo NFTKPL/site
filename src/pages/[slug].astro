@@ -1,36 +1,22 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 import { parse } from 'yaml';
-import { Markdown } from 'astro/components';
 import index from '../../entities/index.json';
 
 const { slug } = Astro.params;
+const entity = Object.values(index).find(e => e.slug === slug);
+if (!entity) throw new Error(`Entity not found: ${slug}`);
 
-// Znajdź encję na podstawie sluga
-const entity = Object.values(index).find((e) => e.slug === slug);
-
-if (!entity) {
-  throw new Error(`Entity not found for slug: ${slug}`);
-}
-
-// Ścieżka do pliku .md
-const mdPath = path.resolve('./entities', entity.path);
+const mdPath = path.resolve('./', entity.path);
 const mdRaw = fs.readFileSync(mdPath, 'utf-8');
-
-// Rozdziel frontmatter i treść
-const [, yamlBlock, markdown] = mdRaw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/) || [];
+const [, yamlBlock, markdown] = mdRaw.match(/---\n([\s\S]*?)---\n([\s\S]*)/) || [];
 const metadata = parse(yamlBlock || '');
 ---
 
-<html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{entity.name} – NFTK</title>
-  </head>
-  <body>
-    <h1>{entity.name}</h1>
-    <p><strong>Typ:</strong> {entity.type}</p>
-    <Markdown content={markdown} />
-  </body>
-</html>
+<BaseLayout title={entity.name}>
+  <h2>{entity.name}</h2>
+  <p><strong>Typ:</strong> {entity.type}</p>
+  <pre>{markdown}</pre>
+</BaseLayout>

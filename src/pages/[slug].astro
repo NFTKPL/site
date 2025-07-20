@@ -6,7 +6,6 @@ import { parse } from 'yaml';
 import index from '../../entities/index.json';
 
 export async function getStaticPaths() {
-  // Handle both array and object formats
   const entities = Array.isArray(index) ? index : Object.values(index);
   return entities.map(entity => ({
     params: { slug: entity.slug }
@@ -19,12 +18,11 @@ if (!entity) throw new Error(`Entity not found: ${slug}`);
 
 const mdPath = path.resolve('./', entity.path);
 const mdRaw = fs.readFileSync(mdPath, 'utf-8');
-const [, yamlBlock, markdown] = mdRaw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)/) || [];
+const [, yamlBlock] = mdRaw.match(/^---\n([\s\S]*?)\n---/) || [];
 const metadata = parse(yamlBlock || '');
 ---
 
 <BaseLayout title={entity.name}>
-	<h2>{entity.name}</h2>
-	<p><strong>Type:</strong> {entity.type}</p>
-	<p><strong>{markdown}</strong></p>
+  <h2>{entity.name}</h2>
+  <p><strong>{entity.type === 'person' ? 'Osoba' : entity.type}</strong></p>
 </BaseLayout>

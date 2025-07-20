@@ -6,7 +6,9 @@ import { parse } from 'yaml';
 import index from '../../entities/index.json';
 
 export async function getStaticPaths() {
-  return index.map(entity => ({
+  // Handle both array and object formats
+  const entities = Array.isArray(index) ? index : Object.values(index);
+  return entities.map(entity => ({
     params: { slug: entity.slug }
   }));
 }

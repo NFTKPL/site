@@ -9,10 +9,5 @@
   },
   "dependencies": {
     "astro": "^5.12.0"
-<<<<<<< HEAD
-  },
-  "devDependencies": {}
-=======
   }
->>>>>>> 55fa8eb (Add package-lock.json for CI build)
 }

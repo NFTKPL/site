@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import index from '../../entities/index.json';
+
+// Pobieramy public/index.json (skopiowany z entities/)
+const response = await fetch('/index.json');
+const index = await response.json();
 ---
 
 <BaseLayout title="NFTK – Baza Wiedzy">

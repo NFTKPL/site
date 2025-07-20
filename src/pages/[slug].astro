@@ -1,0 +1,17 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import entityIndex from '../../entities/index.json';
+
+const { slug } = Astro.params;
+const entity = Object.values(entityIndex).find(e => e.slug === slug);
+
+if (!entity) throw new Error("Entity not found");
+
+const filePath = path.resolve(`../../entities/${entity.path}`);
+const markdownContent = fs.readFileSync(filePath, 'utf-8');
+---
+
+<h1>{entity.name}</h1>
+
+<pre>{markdownContent}</pre>

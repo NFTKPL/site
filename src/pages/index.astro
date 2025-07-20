@@ -1,28 +1,26 @@
 ---
-import entityIndex from '../../entities/index.json';
-
-// Konwertujemy obiekt do tablicy i sortujemy po nazwie
-const entities = Object.values(entityIndex).sort((a, b) =>
-  a.name.localeCompare(b.name)
-);
+import index from '../../entities/index.json';
 ---
 
+<!DOCTYPE html>
 <html lang="pl">
   <head>
-    <meta charset="UTF-8" />
-    <title>Nowoczesna Faktograficzna Teczka Wiedzy</title>
+    <meta charset="utf-8" />
+    <title>NFTK – Nowoczesna Faktograficzna Teczka Wiedzy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <h1>Nowoczesna Faktograficzna Teczka Wiedzy</h1>
-    <p>Wybierz encję:</p>
-    <ul>
-      {entities.map((e) => (
-        <li>
-          <a href={`/${e.slug}/`}>
-            {e.name} <small>({e.type})</small>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <main style="padding: 2rem; font-family: sans-serif">
+      <h1>NFTK – Baza Wiedzy o Osobach i Wydarzeniach</h1>
+      <ul>
+        {Object.values(index).map((entity) => (
+          <li>
+            <a href={`/${entity.slug}`}>
+              {entity.name} ({entity.type})
+            </a>
+          </li>
+        ))}
+      </ul>
+    </main>
   </body>
 </html>

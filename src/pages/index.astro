@@ -1,0 +1,28 @@
+---
+import entityIndex from '../../entities/index.json';
+
+// Konwertujemy obiekt do tablicy i sortujemy po nazwie
+const entities = Object.values(entityIndex).sort((a, b) =>
+  a.name.localeCompare(b.name)
+);
+---
+
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nowoczesna Faktograficzna Teczka Wiedzy</title>
+  </head>
+  <body>
+    <h1>Nowoczesna Faktograficzna Teczka Wiedzy</h1>
+    <p>Wybierz encję:</p>
+    <ul>
+      {entities.map((e) => (
+        <li>
+          <a href={`/${e.slug}/`}>
+            {e.name} <small>({e.type})</small>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

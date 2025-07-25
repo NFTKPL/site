@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nftk.pl/schemas/person.schema.v1.json",
+  "title": "NFTK Person Metadata v1 (basic)",
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "description": "Imię osoby (np. Adam)"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Nazwisko osoby (np. Andruszkiewicz)"
+    },
+    "birth_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Data urodzenia w formacie YYYY-MM-DD (np. 1990-06-30)",
+      "examples": ["1985-02-01"]
+    }
+  },
+  "additionalProperties": true
+}

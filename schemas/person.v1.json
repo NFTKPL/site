@@ -1,0 +1,41 @@
+{
+  "title": "NFTK Schema Person v1",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "description": "Globalny identyfikator UUID v4"
+    },
+    "short_id": {
+      "type": "string",
+      "description": "22-znakowy identyfikator base58"
+    },
+    "type": {
+      "type": "string",
+      "const": "person",
+      "description": "Typ encji"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Slug URL (np. adam-andruszkiewicz)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Pełne imię i nazwisko"
+    },
+    "hash": {
+      "type": "string",
+      "description": "SHA256 zawartości encji"
+    },
+    "cid": {
+      "type": ["string", "null"],
+      "description": "CID z IPFS (opcjonalnie)"
+    },
+    "schema": {
+      "type": "string",
+      "description": "Identyfikator wersji schematu, np. person.v1"
+    }
+  },
+  "required": ["uuid", "short_id", "type", "slug", "name", "hash", "schema"],
+  "additionalProperties": false
+}

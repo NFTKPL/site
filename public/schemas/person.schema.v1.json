@@ -1,23 +1,41 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://nftk.pl/schemas/person.schema.v1.json",
-  "title": "NFTK Person Metadata v1 (basic)",
+  "title": "NFTK Person v1",
   "type": "object",
   "properties": {
-    "first_name": {
+    "uuid": {
       "type": "string",
-      "description": "Imię osoby (np. Adam)"
+      "description": "Globalny identyfikator UUID v4"
     },
-    "last_name": {
+    "short_id": {
       "type": "string",
-      "description": "Nazwisko osoby (np. Andruszkiewicz)"
+      "description": "22-znakowy identyfikator base58"
     },
-    "birth_date": {
+    "type": {
       "type": "string",
-      "format": "date",
-      "description": "Data urodzenia w formacie YYYY-MM-DD (np. 1990-06-30)",
-      "examples": ["1985-02-01"]
+      "const": "person",
+      "description": "Typ encji"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Slug URL (np. adam-andruszkiewicz)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Pełne imię i nazwisko"
+    },
+    "hash": {
+      "type": "string",
+      "description": "SHA256 zawartości encji"
+    },
+    "cid": {
+      "type": ["string", "null"],
+      "description": "CID z IPFS (opcjonalnie)"
+    },
+    "schema": {
+      "type": "string",
+      "description": "Identyfikator wersji schematu, np. person.schema.v1"
     }
   },
-  "additionalProperties": true
+  "required": ["uuid", "short_id", "type", "slug", "name", "hash", "schema"],
+  "additionalProperties": false
 }

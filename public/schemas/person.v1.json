@@ -33,7 +33,7 @@
     },
     "schema": {
       "type": "string",
-      "description": "Identyfikator wersji schematu, np. person.schema.v1"
+      "description": "Identyfikator wersji schematu, np. person.v1"
     }
   },
   "required": ["uuid", "short_id", "type", "slug", "name", "hash", "schema"],

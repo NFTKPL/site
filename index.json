@@ -4,6 +4,7 @@
     "slug": "adam-andruszkiewicz",
     "name": "Adam Andruszkiewicz",
     "type": "person",
+    "schema": null,
     "path": "entities/PJ/PJnHY8rLDkiPa7Bv27VDfR.md"
   },
   "NQ7MRzDuovfbX8tgvNwa7D": {
@@ -11,6 +12,7 @@
     "slug": "adam-dziedzic",
     "name": "Adam Dziedzic",
     "type": "person",
+    "schema": null,
     "path": "entities/NQ/NQ7MRzDuovfbX8tgvNwa7D.md"
   },
   "76uHo7qfCW6ifEHHGkHGiH": {
@@ -18,6 +20,15 @@
     "slug": "adam-gomoła",
     "name": "Adam Gomoła",
     "type": "person",
+    "schema": null,
     "path": "entities/76/76uHo7qfCW6ifEHHGkHGiH.md"
+  },
+  "72jHBUJZKDEFkXRVGMMQUH": {
+    "uuid": "30d4a18e-0df2-4834-87c1-2ad10c2d702a",
+    "slug": "adam-krzemiński",
+    "name": "Adam Krzemiński",
+    "type": "person",
+    "schema": "person.v1",
+    "path": "entities/72/72jHBUJZKDEFkXRVGMMQUH.md"
   }
 }

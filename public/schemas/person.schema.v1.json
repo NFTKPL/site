@@ -1,5 +1,5 @@
 {
-  "title": "NFTK Person v1",
+  "title": "NFTK Schema Person v1",
   "type": "object",
   "properties": {
     "uuid": {
